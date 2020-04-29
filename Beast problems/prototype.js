@@ -13,6 +13,7 @@ function isPrototypeOf(specimen, analogue) {
     return false;
   }
 
+  //.CASE 2 if prototype exists on analogue and specimen
   //Store length for both object.keys
   var specKeys = Object.getOwnPropertyNames(specimen);
   var analKeys = Object.getOwnPropertyNames(anal);
