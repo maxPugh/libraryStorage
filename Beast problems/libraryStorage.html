@@ -19,7 +19,7 @@
       var b = librarySystem("b");
       eq(b, "Library b + hello");
     },
-    "It should be able to return a library with multiple dependencies": function () {
+    "It should be able to return a library with multiple dependencies.": function () {
       librarySystem("a", [], function () {
         return "a";
       });

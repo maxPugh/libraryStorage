@@ -11,7 +11,6 @@
 
 //FUNCTION
 (function () {
-  //*Place to store the libraries
   libraryStorage = {};
 
   function librarySystem(libName, depArr, callback) {
