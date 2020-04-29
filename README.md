@@ -1,2 +1,1 @@
 # libraryStorage
-# isPrototypeOf
