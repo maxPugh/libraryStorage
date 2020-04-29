@@ -1,0 +1,72 @@
+<script src="../simpletest.js"></script>
+<script src="prototype.js"></script>
+<script>
+  tests({
+    "It should return true if prototype of object is correct": function () {
+      var canine = {
+        bark: function () {
+          console.log("bark");
+        },
+      };
+
+      var dog = Object.create(canine);
+      dog.fetch = function () {
+        console.log("fetch");
+      };
+
+      var myDog = Object.create(dog);
+      var empty = Object.create(null);
+
+      eq(dog.isPrototypeOf(myDog), isPrototypeOf(dog, myDog));
+    },
+    "It should return false on null cases": function () {
+      var canine = {
+        bark: function () {
+          console.log("bark");
+        },
+      };
+
+      var dog = Object.create(canine);
+      dog.fetch = function () {
+        console.log("fetch");
+      };
+
+      var myDog = Object.create(dog);
+      var empty = Object.create(null);
+      eq(dog.isPrototypeOf(empty), isPrototypeOf(dog, empty));
+    },
+    "It should be able to handle passing a prototype directly": function () {
+      var canine = {
+        bark: function () {
+          console.log("bark");
+        },
+      };
+
+      var dog = Object.create(canine);
+      dog.fetch = function () {
+        console.log("fetch");
+      };
+
+      var myDog = Object.create(dog);
+      eq(
+        Object.prototype.isPrototypeOf(myDog),
+        isPrototypeOf(Object.prototype, myDog)
+      );
+    },
+    "It should be able to handle any number of prototype links": function () {
+      var canine = {
+        bark: function () {
+          console.log("bark");
+        },
+      };
+
+      var dog = Object.create(canine);
+      dog.fetch = function () {
+        console.log("fetch");
+      };
+
+      var myDog = Object.create(dog);
+      eq(isPrototypeOf(canine, myDog), true);
+    },
+  });
+</script>
